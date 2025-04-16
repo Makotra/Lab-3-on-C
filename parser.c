@@ -12,29 +12,29 @@
 static int priority(const char *op)
 {
 	if (!op)
-		return 0;	 // Если оператор отсутствует, возвращаем минимальный приоритет.
+		return 0;	 
 
 	switch (op[0])
 	{
 	case '*':
 		if (op[1] == '*')
-			return 4;	 // Возведение в степень "**"
-		return 3;		 // Умножение или деление: "*", "/"
+			return 4;	 
+		return 3;		 
 	case '/':
 	case '%':
-		return 3;	 // Деление, остаток от деления
+		return 3;	 
 	case '+':
 	case '-':
-		return 2;	 // Сложение, вычитание
+		return 2;	 
 	case '^':
-		return 1;	 // Побитовое XOR
+		return 1;	 
 	case '<':
 	case '>':
 		if (op[1] == op[0])
-			return 1;	 // Сдвиг "<<", ">>"
-		return 0;		 // Некорректный оператор
+			return 1;	 
+		return 0;		 
 	default:
-		return 0;	 // Неизвестный оператор
+		return 0;	 
 	}
 }
 
@@ -47,7 +47,7 @@ int parsing(const char *expr, int32_t *result)
 	{
 		free_operand_stack(values);
 		free_operator_stack(operators);
-		return 4;	 // Ошибка инициализации памяти
+		return 4;	 
 	}
 
 	int status = 0;
